@@ -88,6 +88,36 @@ class Player4 {
 
     draw() {
         c.beginPath()
+        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+        c.fillStyle = this.color
+        c.fill()
+    }
+}
+class Player5 {
+    constructor(x, y, radius, color) {
+        this.x = x
+        this.y = y
+        this.radius = radius
+        this.color = color
+    }
+
+    draw() {
+        c.beginPath()
+        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
+        c.fillStyle = this.color
+        c.fill()
+    }
+}
+class Player6 {
+    constructor(x, y, radius, color) {
+        this.x = x
+        this.y = y
+        this.radius = radius
+        this.color = color
+    }
+
+    draw() {
+        c.beginPath()
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 1, false)
         c.fillStyle = this.color
         c.fill()
@@ -113,11 +143,15 @@ class Projectile {
 
 addEventListener('click',(event) => {
     const player1 = new Player1 (canvas.width / 2, canvas.height / 2, 300, 'blue')
-    const player2 = new Player2 (canvas.width - 750, 200, 100, 'yellow')
-    const player3 = new Player3 (canvas.width - 1025, 200, 100, 'yellow')
-    const player4 = new Player4 (canvas.width / 2, 400, 150, 'green')
+    const player2 = new Player2 (canvas.width - 750, 200, 100, 'White')
+    const player3 = new Player3 (canvas.width - 1025, 200, 100, 'White')
+    const player4 = new Player4 (canvas.width - 750, 200, 50, 'black')
+    const player5 = new Player5 (canvas.width - 1025, 200, 50, 'black')
+    const player6 = new Player6 (canvas.width / 2, 400, 150, 'green')
     player1.draw()
     player2.draw()
     player3.draw()
     player4.draw()
+    player5.draw()
+    player6.draw()
 })
