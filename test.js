@@ -1,21 +1,21 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 const text = document.querySelector('.fancy')
-const strText = text.textContent;
+const strText = text.textContent
 const splitText = strText.split("")
-text.textContent = "";
+text.textContent = ""
 
 
 canvas.width = 1800
 canvas.height = 700
 
 
-for (let i=0; i < splitText.length; i++){
+for (let i=0; i < splitText.length; i++) {
     text.innerHTML += "<span>" + splitText[i] + "</span>"
 }
 
 let char = 0;
-let timer = setInterval(onTick, 50);
+let timer = setInterval(onTick, 50)
 
 function onTick() {
     const span = text.querySelectorAll('span')[char];
