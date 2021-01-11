@@ -1,21 +1,21 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 const text = document.querySelector('.fancy')
-const strText = text.textContent
+const strText = text.textContent;
 const splitText = strText.split("")
-text.textContent = ""
+text.textContent = "";
 
 
 canvas.width = 1800
 canvas.height = 700
 
 
-for (let i=0; i < splitText.length; i++) {
+for (let i=0; i < splitText.length; i++){
     text.innerHTML += "<span>" + splitText[i] + "</span>"
 }
 
 let char = 0;
-let timer = setInterval(onTick, 50)
+let timer = setInterval(onTick, 50);
 
 function onTick() {
     const span = text.querySelectorAll('span')[char];
@@ -33,7 +33,7 @@ function complete() {
     timer = null;
 }
 
-class Player1 {
+class Head {
     constructor(x, y, radius, color) {
         this.x = x
         this.y = y
@@ -48,7 +48,7 @@ class Player1 {
         c.fill()
     }
 }
-class Player2 {
+class EyeR {
     constructor(x, y, radius, color) {
         this.x = x
         this.y = y
@@ -63,7 +63,7 @@ class Player2 {
         c.fill()
     }
 }
-class Player3 {
+class EyeL {
     constructor(x, y, radius, color) {
         this.x = x
         this.y = y
@@ -78,37 +78,7 @@ class Player3 {
         c.fill()
     }
 }
-class Player4 {
-    constructor(x, y, radius, color) {
-        this.x = x
-        this.y = y
-        this.radius = radius
-        this.color = color
-    }
-
-    draw() {
-        c.beginPath()
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-        c.fillStyle = this.color
-        c.fill()
-    }
-}
-class Player5 {
-    constructor(x, y, radius, color) {
-        this.x = x
-        this.y = y
-        this.radius = radius
-        this.color = color
-    }
-
-    draw() {
-        c.beginPath()
-        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false)
-        c.fillStyle = this.color
-        c.fill()
-    }
-}
-class Player6 {
+class Mouth {
     constructor(x, y, radius, color) {
         this.x = x
         this.y = y
@@ -141,17 +111,34 @@ class Projectile {
     }
 }
 
-addEventListener('click',(event) => {
-    const player1 = new Player1 (canvas.width / 2, canvas.height / 2, 300, 'blue')
-    const player2 = new Player2 (canvas.width - 750, 200, 100, 'White')
-    const player3 = new Player3 (canvas.width - 1025, 200, 100, 'White')
-    const player4 = new Player4 (canvas.width - 750, 200, 50, 'black')
-    const player5 = new Player5 (canvas.width - 1025, 200, 50, 'black')
-    const player6 = new Player6 (canvas.width / 2, 400, 150, 'green')
-    player1.draw()
-    player2.draw()
-    player3.draw()
-    player4.draw()
-    player5.draw()
-    player6.draw()
-})
+var i = 310;
+var b = 310;
+
+function draw() {
+    
+        const head = new Head (i, i, 300, 'blue'); // head
+        const eyeR = new EyeR (i + 150, b - 200, 100, 'white'); // right eye
+        const eyeL = new EyeL (i - 150, b - 200, 100, 'white'); // left eye
+        const mouth = new Mouth (i + 10, b + 50, 200, 'green'); // mouth
+        head.draw();
+        eyeR.draw();
+        eyeL.draw();
+        mouth.draw();
+        
+        i = i + 200;
+        console.log(i)
+};
+
+draw()
+
+//addEventListener('click',(event) => {
+//    const player1 = new Player1 (event.clientX, event.clientY, 300, 'blue') // head
+//    const player2 = new Player2 (event.clientX - 150, event.clientY - 100, 100, 'white') // right eye
+//    const player3 = new Player3 (event.clientX + 150, event.clientY - 100, 100, 'white') // left eye
+//    const player4 = new Player4 (event.clientX, event.clientY + 100, 100, 'green') // mouth
+//    player1.draw()
+//    player2.draw()
+//    player3.draw()
+//    player4.draw()
+//})
+
